@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+def random_surface_area
+    areas = (25..400).select { |n| n % 5 == 0 }
+    areas.sample
+end
+
+def random_price
+    prices = (20000..3000000).select { |n| n % 1000 == 0}
+    prices.sample
+end
+
+puts "seeding properties..."
+100.times do |i|
+    Property.create(name: "#{Faker::Ancient.hero} #{rand(0..5)}", address: Faker::Address.street_address, bed: rand(0..5), bath: rand(1..4), 
+        surface_area: random_surface_area, floor: rand(0..20), price: random_price, currency: "USD", user_id: 1)
+end
+
+puts "Properties seeded!"
