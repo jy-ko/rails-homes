@@ -1,20 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Properties</h1>
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+<h1 class="text-lg m-10 font-bold">Properties</h1>
 
-  
-<%# <div id="properties"> %>
- <%#  <% @properties.each do |property| %>
-    <%# <%= render property %> 
-    <%# <p> %>
-      <%# <%= link_to "Show this property", property %> 
-    <%# </p> %>
-  <%# <% end %> 
-<%# </div> %> 
+<div id="properties">
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <div id="properties-list" class="m-10">
+    <% @properties.each do |property| %>
+      <%= link_to property_path(property) do %>
+        <%= render property %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to "New property", new_property_path %>

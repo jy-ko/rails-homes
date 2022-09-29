@@ -1,57 +1,13 @@
-<div id="<%= dom_id property %>">
-  <p>
-    <strong>Name:</strong>
-    <%= property.name %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= property.user_id %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= property.address %>
-  </p>
-
-  <p>
-    <strong>Latitude:</strong>
-    <%= property.latitude %>
-  </p>
-
-  <p>
-    <strong>Longitude:</strong>
-    <%= property.longitude %>
-  </p>
-
+<div id="<%= dom_id property %>" class="mb-8 p-2 border bg-gray-800 text-gray-200 rounded">
   <p>
     <strong>Price:</strong>
-    <%= property.price %>
+    <%= "#{property.price} #{property.currency}"  %>
   </p>
-
-  <p>
-    <strong>Currency:</strong>
-    <%= property.currency %>
-  </p>
-
-  <p>
-    <strong>Surface area:</strong>
-    <%= property.surface_area %>
-  </p>
-
-  <p>
-    <strong>Bed:</strong>
-    <%= property.bed %>
-  </p>
-
-  <p>
-    <strong>Bath:</strong>
-    <%= property.bath %>
-  </p>
-
-  <p>
-    <strong>Floor:</strong>
-    <%= property.floor %>
-  </p>
-
+    <%= property.address %>
+  <div class="flex">
+    <p class="mr-4">🛌<%= property.bed %></p>
+    <p class="mr-4">🛀<%= property.bath %></p>
+    <p class="mr-4">📐<%= "#{property.surface_area} m2" %></p>
+    <p><%= property.floor %>
+  </div>
 </div>
