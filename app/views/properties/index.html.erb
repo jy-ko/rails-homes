@@ -8,7 +8,7 @@
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <div id="properties-list" class="m-10">
+  <div id="properties-list" class="mx-40 my-10">
     <% @properties.each do |property| %>
       <%= link_to property_path(property) do %>
         <%= render property %>
