@@ -1,8 +1,12 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @property %>
-
-<div>
+<div class="m-12 h-64 min-h-full">
+  <div class="w-48 h-48 object-cover overflow-y-hidden">
+    <% if @property.photo.attached? %>
+      <%= cl_image_tag property.photo.first.key, :width=>300, :crop=>"fill"  %>
+    <% else %>
+      <%= image_tag ('house-illustration') %>
+    <% end %>
+  </div>
   <p><%= @property.name %></p>
   <p><%= User.find_by(id: @property.user_id).first_name %></p>
   <%= link_to "Edit this property", edit_property_path(@property) %> |

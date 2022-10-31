@@ -1,12 +1,12 @@
 <div id="<%= dom_id property %>" class="mb-8 p-2 border bg-gray-800 text-gray-200 rounded flex">
-  <div class="w-64 h-64 object-cover overflow-y-hidden">
+  <div class="w-48 h-48 object-cover overflow-y-hidden">
     <% if property.photo.attached? %>
       <%= cl_image_tag property.photo.first.key, :width=>300, :crop=>"fill"  %>
     <% else %>
       <%= image_tag ('house-illustration') %>
     <% end %>
   </div>
-  <div>
+  <div class="m-12 text-lg ">
     <p>
       <strong>Price:</strong>
       <%= "#{property.price} #{property.currency}"  %>
