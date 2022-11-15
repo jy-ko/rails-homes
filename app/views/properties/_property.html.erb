@@ -1,57 +1,22 @@
-<div id="<%= dom_id property %>">
-  <p>
-    <strong>Name:</strong>
-    <%= property.name %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= property.user_id %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= property.address %>
-  </p>
-
-  <p>
-    <strong>Latitude:</strong>
-    <%= property.latitude %>
-  </p>
-
-  <p>
-    <strong>Longitude:</strong>
-    <%= property.longitude %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= property.price %>
-  </p>
-
-  <p>
-    <strong>Currency:</strong>
-    <%= property.currency %>
-  </p>
-
-  <p>
-    <strong>Surface area:</strong>
-    <%= property.surface_area %>
-  </p>
-
-  <p>
-    <strong>Bed:</strong>
-    <%= property.bed %>
-  </p>
-
-  <p>
-    <strong>Bath:</strong>
-    <%= property.bath %>
-  </p>
-
-  <p>
-    <strong>Floor:</strong>
-    <%= property.floor %>
-  </p>
-
+<div id="<%= dom_id property %>" class="mb-8 p-2 border bg-gray-800 text-gray-200 rounded flex">
+  <div class="w-48 h-48 object-cover overflow-y-hidden">
+    <% if property.photo.attached? %>
+      <%= cl_image_tag property.photo.first.key, :width=>300, :crop=>"fill"  %>
+    <% else %>
+      <%= image_tag ('house-illustration') %>
+    <% end %>
+  </div>
+  <div class="m-12 text-lg ">
+    <p>
+      <strong>Price:</strong>
+      <%= "#{property.price} #{property.currency}"  %>
+    </p>
+      <%= property.address %>
+    <div class="flex">
+      <p class="mr-4">🛌<%= property.bed %></p>
+      <p class="mr-4">🛀<%= property.bath %></p>
+      <p class="mr-4">📐<%= "#{property.surface_area} m2" %></p>
+      <p><%= property.floor %>
+    </div>
+  </div>
 </div>
