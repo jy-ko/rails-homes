@@ -1,10 +1,33 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @property %>
-
+  <div class="m-24" >
+    <%= image_tag("house1") %>
+    <div class="flex">
+      <div class="flex-1 py-12">
+        <h1 class="text-6xl"><%= @property.name %></h1>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in velit sit amet ante varius suscipit.
+         Nunc vehicula ut velit at pharetra. Phasellus consectetur, velit vel vulputate efficitur,
+          tortor lacus placerat eros, vel condimentum libero turpis a eros. Lorem ipsum dolor sit amet,
+           consectetur adipiscing elit. Interdum et malesuada fames ac an. Quisque aliquam tincidunt orci sed efficitur. Fusce dapibus volutpat massa ut blandit. Sed rhoncus euismod erat, non feugiat odio tincidunt tincidunt. Integer tincidunt a elit sit amet ultrices. Proin in venenatis tellus, vitae rutrum libero.</p>
+        <br>
+         
+         <p>Address: <%= @property.address %></p>
+         <p>Price: <%= @property.price %> <%= @property.currency%></p>
+         <p>Surface Area: <%= @property.surface_area %></p>
+         <p>Bedroom: <%= @property.bed %></p>
+         <p>Bathroom: <%= @property.bath %></p>
+         <p>Floor: <%= @property.floor %></p>
+      </div>
+      <div class="flex-1 p-12">
+        <%= @property.user.first_name %>
+      
+      <% if current_user == @property.user %>
+        <%= link_to "Edit this property", edit_property_path(@property) %> |
+        <%= button_to "Destroy this property", @property, method: :delete %>
+      <% end %>
+      </div>
+    </div>
+  </div>
 <div>
-  <%= link_to "Edit this property", edit_property_path(@property) %> |
-  <%= link_to "Back to properties", properties_path %>
-
-  <%= button_to "Destroy this property", @property, method: :delete %>
+ 
 </div>
