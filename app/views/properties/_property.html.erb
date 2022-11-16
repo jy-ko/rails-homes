@@ -1,7 +1,12 @@
 
 <div id="<%= dom_id property %>">
   <div class="max-w-sm w-full lg:max-w-full lg:flex my-4">
-  <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('/assets/house1.jpg')" title="Woman holding a mug">
+  <div class="h-64 lg:h-auto lg:w-64 flex-none rounded-t lg:rounded-t-none lg:rounded-l text-center" src="property">
+    <% if property.photo.attached? %>
+      <%= cl_image_tag property.photo.first.key, :crop=>"fill", class:"w-full h-full object-cover" %>
+    <% else %>
+      <%= image_tag ('house1'), class:"w-full h-full object-cover" %>
+    <% end %>
   </div>
   <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
     <div class="mb-8">
@@ -27,28 +32,3 @@
   </div>
 </div>
 </div>
-
-
-<div id="<%= dom_id property %>" class="mb-8 p-2 border bg-gray-800 text-gray-200 rounded flex">
-  <div class="w-48 h-48 object-cover overflow-y-hidden">
-    <% if property.photo.attached? %>
-      <%= cl_image_tag property.photo.first.key, :width=>300, :crop=>"fill"  %>
-    <% else %>
-      <%= image_tag ('house-illustration') %>
-    <% end %>
-  </div>
-  <div class="m-12 text-lg ">
-    <p>
-      <strong>Price:</strong>
-      <%= "#{property.price} #{property.currency}"  %>
-    </p>
-      <%= property.address %>
-    <div class="flex">
-      <p class="mr-4">🛌<%= property.bed %></p>
-      <p class="mr-4">🛀<%= property.bath %></p>
-      <p class="mr-4">📐<%= "#{property.surface_area} m2" %></p>
-      <p><%= property.floor %>
-    </div>
-  </div>
-</div>
-
