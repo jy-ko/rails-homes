@@ -1,10 +1,10 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, :except => [:index, :show]
   # GET /properties or /properties.json
   def index
-    @properties = Property.all
-    @markers = @properties.geocoded.map do |property|
+    @properties = Property.page(params[:page]).per(10)
+    @markers = Property.all.geocoded.map do |property|
       {
         lat: property.latitude,
         lng: property.longitude, 
@@ -29,6 +29,7 @@ class PropertiesController < ApplicationController
   # POST /properties or /properties.json
   def create
     @property = Property.new(property_params)
+    @property.user = current_user
 
     respond_to do |format|
       if @property.save
