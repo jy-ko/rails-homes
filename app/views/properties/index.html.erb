@@ -9,7 +9,7 @@
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 
-    <div id="properties" class="mt-12">
+    <div id="properties" class="mt-12 mx-auto">
     <% @properties.each do |property| %>
         <%= link_to property do %>
           <%= render property %> 

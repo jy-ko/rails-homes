@@ -17,7 +17,7 @@ def random_price
 end
 
 puts "seeding properties..."
-100.times do |i|
+20.times do |i|
     Property.create(name: "#{Faker::Ancient.hero} #{rand(0..5)}", address: Faker::Address.street_address, bed: rand(0..5), bath: rand(1..4), 
         surface_area: random_surface_area, floor: rand(0..20), price: random_price, currency: "USD", user_id: 1)
 end
