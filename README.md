@@ -1,24 +1,4 @@
-# README
+# Rails Homes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<img width="900" alt="Screenshot 2022-11-17 at 6 36 59 PM" src="https://user-images.githubusercontent.com/53289659/202504244-c93e740c-9124-4a1b-997c-5f7f3646f963.png">
