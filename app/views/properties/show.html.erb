@@ -1,7 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
   <div class="m-24" >
-    <%= image_tag("house1") %>
+    <% if @property.photo.attached? %>
+      <%= cl_image_tag @property.photo.first.key, :crop=>"fill", class:"w-full h-full object-cover" %>
+    <% else %>
+      <%= image_tag("house1")%>
+    <% end %>
     <div class="flex">
       <div class="flex-1 py-12">
         <h1 class="text-6xl"><%= @property.name %></h1>
@@ -18,15 +22,12 @@
          <p>Bedroom: <%= @property.bed %></p>
          <p>Bathroom: <%= @property.bath %></p>
          <p>Floor: <%= @property.floor %></p>
-      </div>
-      <div class="flex-1 p-12">
-        <%= @property.user.first_name %>
-      
-      <% if current_user == @property.user %>
-        <%= link_to "Edit this property", edit_property_path(@property) %> |
+        <% if current_user == @property.user %>
+        <%= link_to "Edit this property", edit_property_path(@property) %> 
         <%= button_to "Destroy this property", @property, method: :delete %>
       <% end %>
       </div>
+
     </div>
   </div>
 <div>
