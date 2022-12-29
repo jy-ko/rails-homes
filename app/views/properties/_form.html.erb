@@ -12,50 +12,51 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label :name, style: "display: block", class:"block mt-4 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_field :name, class:"bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
   <div>
-    <%= form.label :address, style: "display: block" %>
-    <%= form.text_field :address %>
+    <%= form.label :address, style: "display: block", class:"block mt-4 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_field :address, class:"bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
   <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
+    <%= form.label :price, style: "display: block", class:"block mt-4 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.number_field :price, class:"bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
   <div>
-    <%= form.label :currency, style: "display: block" %>
-    <%= form.text_field :currency %>
+    <%= form.label :currency, style: "display: block", class:"block mt-4 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_field :currency, class:"bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
   <div>
-    <%= form.label :surface_area, style: "display: block" %>
-    <%= form.text_field :surface_area %>
+    <%= form.label :surface_area, style: "display: block", class:"block mt-4 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_field :surface_area, class:"bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
   <div>
-    <%= form.label :bed, style: "display: block" %>
-    <%= form.number_field :bed %>
+    <%= form.label :bed, style: "display: block", class:"block mt-4 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.number_field :bed, class:"bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
   <div>
-    <%= form.label :bath, style: "display: block" %>
-    <%= form.text_field :bath %>
+    <%= form.label :bath, style: "display: block", class:"block mt-4 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_field :bath, class:"bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
   <div>
-    <%= form.label :floor, style: "display: block" %>
-    <%= form.number_field :floor %>
+    <%= form.label :floor, style: "display: block",  class:"block mt-4 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.number_field :floor, class:"bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
   <div>
-    <%= form.file_field :photo, style: "display: block" %>
+    <%= form.label :photo, style: "display: block",  class:"block mt-4 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.file_field :photo, style: "display: block",  class:"block mt-4 text-sm font-medium text-gray-900 dark:text-white" %>
   </div>
 
-  <div>
+  <div class="bg-white text-center my-4 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
     <%= form.submit %>
   </div>
 <% end %>

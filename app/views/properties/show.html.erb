@@ -1,12 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-  <div class="m-24" >
+  <div class="m-24 flex justify-center items-center" >
     <% if @property.photo.attached? %>
-      <%= cl_image_tag @property.photo.first.key, :crop=>"fill", class:"w-full h-full object-cover" %>
+      <%= cl_image_tag @property.photo.first.key, :crop=>"fill", class:"max-w-xl max-h-max object-cover flex-1" %>
     <% else %>
-      <%= image_tag("house1")%>
+      <%= image_tag("house1", class:"max-w-xl max-h-max object-cover flex-1")%>
     <% end %>
-    <div class="flex">
+    <div class="flex flex-1 mx-8">
       <div class="flex-1 py-12">
         <h1 class="text-6xl"><%= @property.name %></h1>
         <br>
@@ -14,17 +14,18 @@
          Nunc vehicula ut velit at pharetra. Phasellus consectetur, velit vel vulputate efficitur,
           tortor lacus placerat eros, vel condimentum libero turpis a eros. Lorem ipsum dolor sit amet,
            consectetur adipiscing elit. Interdum et malesuada fames ac an. Quisque aliquam tincidunt orci sed efficitur. Fusce dapibus volutpat massa ut blandit. Sed rhoncus euismod erat, non feugiat odio tincidunt tincidunt. Integer tincidunt a elit sit amet ultrices. Proin in venenatis tellus, vitae rutrum libero.</p>
-        <br>
-         
+        <br/>
          <p>Address: <%= @property.address %></p>
-         <p>Price: <%= @property.price %> <%= @property.currency%></p>
-         <p>Surface Area: <%= @property.surface_area %></p>
+         <p>Price: <%= @property.price %> <%= @property.currency.upcase%></p>
+         <p>Surface Area: <%= @property.surface_area %> sqm</p>
          <p>Bedroom: <%= @property.bed %></p>
          <p>Bathroom: <%= @property.bath %></p>
          <p>Floor: <%= @property.floor %></p>
+         <br/>
+         
         <% if current_user == @property.user %>
-        <%= link_to "Edit this property", edit_property_path(@property) %> 
-        <%= button_to "Destroy this property", @property, method: :delete %>
+        <%= link_to "Edit this property", edit_property_path(@property),class:"hover:text-green-800" %> 
+        <%= button_to "Destroy this property", @property, method: :delete, class:"hover:text-red-800" %>
       <% end %>
       </div>
 
