@@ -1,21 +1,22 @@
+# frozen_string_literal: true
+
 class PropertiesController < ApplicationController
-  before_action :set_property, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :set_property, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[index show]
   # GET /properties or /properties.json
   def index
     @properties = Property.page(params[:page]).per(10)
     @markers = Property.all.geocoded.map do |property|
       {
         lat: property.latitude,
-        lng: property.longitude, 
-        info_window: render_to_string(partial: "info_window", locals: { property: property})
+        lng: property.longitude,
+        info_window: render_to_string(partial: 'info_window', locals: { property: property })
       }
     end
   end
 
   # GET /properties/1 or /properties/1.json
-  def show
-  end
+  def show; end
 
   # GET /properties/new
   def new
@@ -23,8 +24,7 @@ class PropertiesController < ApplicationController
   end
 
   # GET /properties/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /properties or /properties.json
   def create
@@ -33,7 +33,7 @@ class PropertiesController < ApplicationController
 
     respond_to do |format|
       if @property.save
-        format.html { redirect_to property_url(@property), notice: "Property was successfully created." }
+        format.html { redirect_to property_url(@property), notice: 'Property was successfully created.' }
         format.json { render :show, status: :created, location: @property }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -46,7 +46,7 @@ class PropertiesController < ApplicationController
   def update
     respond_to do |format|
       if @property.update(property_params)
-        format.html { redirect_to property_url(@property), notice: "Property was successfully updated." }
+        format.html { redirect_to property_url(@property), notice: 'Property was successfully updated.' }
         format.json { render :show, status: :ok, location: @property }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -60,19 +60,21 @@ class PropertiesController < ApplicationController
     @property.destroy
 
     respond_to do |format|
-      format.html { redirect_to properties_url, notice: "Property was successfully destroyed." }
+      format.html { redirect_to properties_url, notice: 'Property was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_property
-      @property = Property.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def property_params
-      params.require(:property).permit(:name, :user_id, :address, :latitude, :longitude, :price, :currency, :surface_area, :bed, :bath, :floor, :photo)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_property
+    @property = Property.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def property_params
+    params.require(:property).permit(:name, :user_id, :address, :latitude, :longitude, :price, :currency,
+                                     :surface_area, :bed, :bath, :floor, :photo)
+  end
 end

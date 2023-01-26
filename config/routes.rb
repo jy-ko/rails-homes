@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get 'dashboard/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -8,5 +10,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root to: "home#index"
+  root to: 'home#index'
 end
