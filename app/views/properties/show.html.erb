@@ -1,13 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-  <div class="m-24 flex justify-center items-center" >
+  <div class="m-24 flex flex-wrap justify-center items-center" >
     <% if @property.photo.attached? %>
       <%= cl_image_tag @property.photo.first.key, :crop=>"fill", class:"max-w-xl max-h-max object-cover flex-1" %>
     <% else %>
       <%= image_tag("house1", class:"max-w-xl max-h-max object-cover flex-1")%>
     <% end %>
     <div class="flex flex-1 mx-8">
-      <div class="flex-1 py-12">
+      <div class="py-12">
         <h1 class="text-6xl"><%= @property.name %></h1>
         <br>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in velit sit amet ante varius suscipit.
