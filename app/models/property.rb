@@ -12,4 +12,8 @@ class Property < ApplicationRecord
     using: {
       tsearch: { prefix: true } 
     }
+
+  def self.beds
+    Property.pluck(:bed).uniq.sort
+  end
 end
