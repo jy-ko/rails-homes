@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :property do
-    name { "MyString" }
+    name { 'MyString' }
     user { nil }
-    address { "MyString" }
+    address { 'MyString' }
     latitude { 1.5 }
     longitude { 1.5 }
     price { 1 }
-    currency { "MyString" }
+    currency { 'MyString' }
     surface_area { 1.5 }
     bed { 1 }
     bath { 1.5 }
