@@ -47,6 +47,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 
 gem 'kaminari'
+gem "pg_search"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -81,3 +82,5 @@ group :test do
   gem 'webdrivers'
 end
 gem 'sassc-rails'
+
+gem "byebug", "~> 11.1", :groups => [:development, :test]
