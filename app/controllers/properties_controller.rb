@@ -5,14 +5,19 @@ class PropertiesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   # GET /properties or /properties.json
   def index
-    @properties = Property.page(params[:page]).per(10)
-    @markers = Property.all.geocoded.map do |property|
+    if params[:query].present?
+      @properties = Property.search_by_address_and_name(params[:query])
+    else 
+      @properties = Property.all
+    end
+    @markers = @properties.geocoded.map do |property|
       {
         lat: property.latitude,
         lng: property.longitude,
         info_window: render_to_string(partial: 'info_window', locals: { property: property })
       }
     end
+    @properties = @properties.page(params[:page]).per(10)
   end
 
   # GET /properties/1 or /properties/1.json

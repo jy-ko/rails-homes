@@ -78,6 +78,7 @@ GEM
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    byebug (11.1.3)
     capybara (3.37.1)
       addressable
       matrix
@@ -182,6 +183,9 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.3)
+    pg_search (2.3.6)
+      activerecord (>= 5.2)
+      activesupport (>= 5.2)
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -312,6 +316,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  byebug (~> 11.1)
   capybara
   cloudinary
   cssbundling-rails
@@ -324,6 +329,7 @@ DEPENDENCIES
   jsbundling-rails
   kaminari
   pg (~> 1.1)
+  pg_search
   puma (~> 5.0)
   rails (~> 7.0.4)
   rails_admin (~> 3.0)
