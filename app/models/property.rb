@@ -14,6 +14,6 @@ class Property < ApplicationRecord
     }
 
   def self.beds
-    pluck(:bed).uniq.sort
+    Property.pluck(:bed).uniq.compact.sort
   end
 end
