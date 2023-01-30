@@ -6,9 +6,7 @@ I have created this app to learn more about Rails 7, Stimulus JS, and Tailwind C
 
 ## Technologies
 
-Rails 7
-Stimulus JS 
-Tailwind CSS 
+Rails 7/ Stimulus JS /Tailwind CSS 
 
 #### Gems
 
