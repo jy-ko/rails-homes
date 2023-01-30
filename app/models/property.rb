@@ -16,6 +16,8 @@ class Property < ApplicationRecord
   def self.beds
     unless Property.count.nil?
       Property.pluck(:bed).uniq.sort
+    else 
+      return "none"
     end
   end
 end
