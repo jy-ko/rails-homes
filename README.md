@@ -1,4 +1,17 @@
-# Rails Homes
+# Rails Homes 
+
+Real estate platform for global off plan properties
+
+Created with Ruby on Rails 7
+
+
+## Technologies
+
+```gem 'devise'``` for Authentication 
+Geocoder 
+
+## Features 
+
 
 Deployed on Render
 [Project Link](https://rails-w531.onrender.com/)
