@@ -1,11 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-  <div class="m-24 flex flex-wrap justify-center items-center" >
-    <% if @property.photo.attached? %>
-      <%= cl_image_tag @property.photo.first.key, :crop=>"fill", class:"max-w-xl max-h-max object-cover flex-1" %>
-    <% else %>
-      <%= image_tag("house1", class:"max-w-xl max-h-max object-cover flex-1")%>
-    <% end %>
+  <div class="m-24 flex flex-wrap justify-center" >
+    <div class="flex flex-col justify-between">
+      <%= link_to "Back", :back, class:"mb-4" %> 
+      <% if @property.photo.attached? %>
+          <%= cl_image_tag @property.photo.first.key, :crop=>"fill", class:"max-w-xl max-h-max object-cover flex-1" %>
+        </div>
+      <% else %>
+        <%= image_tag("house1", class:"max-w-xl max-h-max object-cover flex-1")%>
+      <% end %>
+    </div>
     <div class="flex flex-1 mx-8">
       <div class="py-12">
         <h1 class="text-6xl"><%= @property.name %></h1>
@@ -22,7 +26,7 @@
          <p>Bathroom: <%= @property.bath %></p>
          <p>Floor: <%= @property.floor %></p>
          <br/>
-         
+
         <% if current_user == @property.user %>
         <%= link_to "Edit this property", edit_property_path(@property),class:"hover:text-green-800" %> 
         <%= button_to "Destroy this property", @property, method: :delete, class:"hover:text-red-800" %>
