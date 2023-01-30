@@ -38,8 +38,8 @@
           </div>
 
           <div class="absolute hidden right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" data-navbar-target="usermenu" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1" id="dropdownMenu">
-            <a href="/users/edit" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Edit Profile</a>
             <% if current_user %>
+                          <a href="/users/edit" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Edit Profile</a>
               <%= button_to "Sign Out", destroy_user_session_path, class: "block px-4 py-2 text-sm text-gray-700", method: :delete, data: { turbo_method: :delete }, role:"menuitem", tabindex:"-1", id:"user-menu-item-2"%>
             <% else %>
               <a href="/users/sign_in" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign in</a>
