@@ -17,7 +17,7 @@ class Property < ApplicationRecord
     unless Property.count.nil?
       Property.pluck(:bed).uniq.sort
     else 
-      return "none"
+      return []
     end
   end
 end
