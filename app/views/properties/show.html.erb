@@ -1,16 +1,14 @@
 <p style="color: green"><%= notice %></p>
-
-  <div class="m-24 flex flex-wrap justify-center" >
-    <div class="flex flex-col justify-between">
+  <div class="flex flex-wrap" >
+    <div class="p-7 flex flex-1 flex-col justify-between flex-wrap max-h-max ">
       <%= link_to "Back", :back, class:"mb-4" %> 
       <% if @property.photo.attached? %>
-          <%= cl_image_tag @property.photo.first.key, :crop=>"fill", class:"max-w-xl max-h-max object-cover flex-1" %>
-        </div>
+          <%= cl_image_tag @property.photo.first.key, :crop=>"fill", class:"max-w-xl sm:max-w-full object-cover flex-1" %>
       <% else %>
-        <%= image_tag("house1", class:"max-w-xl max-h-max object-cover flex-1")%>
+        <%= image_tag("house1", class:"max-w-xl sm:max-w-full object-cover flex-1")%>
       <% end %>
     </div>
-    <div class="flex flex-1 mx-8">
+    <div class="flex-1 flex p-7 flex-wrap">
       <div class="py-12">
         <h1 class="text-6xl"><%= @property.name %></h1>
         <br>
@@ -32,7 +30,5 @@
         <%= button_to "Destroy this property", @property, method: :delete, class:"hover:text-red-800" %>
       <% end %>
       </div>
-
     </div>
   </div>
-<div>
