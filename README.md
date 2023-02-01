@@ -27,7 +27,7 @@ Rails 7/ Stimulus JS /Tailwind CSS
 - A user ( without an account ) can view all the listings, search them by name, address and filter them by the number of bedrooms.
 - A user with an account can create a listing ( later to be only available for premium or verified users )
 - A user can create an account and edit own account
-- A user can edit his/her own listing 
+- A user can edit their own listing 
 
 
 ## Deployment
