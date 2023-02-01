@@ -8,10 +8,10 @@ class Property < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_address_and_name,
-    against: [ :address, :name ],
-    using: {
-      tsearch: { prefix: true } 
-    }
+                  against: %i[address name],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
   def self.beds
     Property.pluck(:bed).uniq.compact.sort

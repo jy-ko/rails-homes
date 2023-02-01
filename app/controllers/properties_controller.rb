@@ -5,15 +5,15 @@ class PropertiesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   # GET /properties or /properties.json
   def index
-    if params[:query].present? && params[:filter].present?
-      @properties = Property.where(bed: params[:filter]).search_by_address_and_name(params[:query])
-    elsif params[:query] .present?
-      @properties = Property.search_by_address_and_name(params[:query])
-    elsif params[:filter].present?
-      @properties = Property.where(bed: params[:filter])
-    else
-      @properties = Property.all
-    end
+    @properties = if params[:query].present? && params[:filter].present?
+                    Property.where(bed: params[:filter]).search_by_address_and_name(params[:query])
+                  elsif params[:query].present?
+                    Property.search_by_address_and_name(params[:query])
+                  elsif params[:filter].present?
+                    Property.where(bed: params[:filter])
+                  else
+                    Property.all
+                  end
     @markers = @properties.geocoded.map do |property|
       {
         lat: property.latitude,
